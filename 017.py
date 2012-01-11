@@ -40,7 +40,7 @@ def number_to_words(number):
                 ).strip()
 
     if len(string) == 3:
-        and_ = '' if int(string[1:]) == 0 else ' and '
+        and_ = '' if int(next_) == 0 else ' and '
         return ''.join(
                  ( digit_to_word(int(digit)),
                    'hundred',
