@@ -1,5 +1,3 @@
-from primes import factors
-
 def divisors(number):
     """
     >>> divisors(4)
