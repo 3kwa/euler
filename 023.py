@@ -1,7 +1,11 @@
+from math import sqrt
+
 def divisors(number):
     """
     >>> divisors(4)
     [1, 2]
+    >>> divisors(28)
+    [1, 2, 4, 7, 14]
     """
     return [d for d in range(1,number) if number % d == 0]
 
@@ -26,7 +30,7 @@ def is_abundant(number):
     return d(number) > number
 
 # 28123 is upper limit
-ABUNDANTS = [number for number in range(28123) if is_abundant(number)]
+ABUNDANTS = set(number for number in range(28123) if is_abundant(number))
 
 def is_sum_of_abundants(number):
     """
