@@ -18,7 +18,17 @@ def d(number):
     >>> d(28)
     28
     """
-    return sum(d for d in divisors(number))
+    # takes 55 seconds
+    # return sum(d for d in divisors(number))
+
+    # takes 0.5 seconds
+    result = 1
+    for i in range(2, int(sqrt(number)) + 1):
+        if (number % i == 0):
+            result += i
+            if i != number/i:
+                result += number / i
+    return result
 
 def is_abundant(number):
     """
