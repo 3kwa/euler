@@ -14,11 +14,10 @@ def length_cycle_for_unit_fraction(n):
     remainder = []
 
     r = 1 % n
-    num = r * 10
     while r not in remainder:
+        num = r * 10
         remainder.append(r)
         r = num % n
-        num = r * 10
 
     # if r = 0 we have a terminating decimal
     return len(remainder) - remainder.index(r) if r else r
