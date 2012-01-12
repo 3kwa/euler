@@ -8,7 +8,6 @@ def prime_sum_of_primes_generator(maximum):
     >>> max( (l for l in sop100), key=lambda l : len(l) )
     [2, 3, 5, 7, 11, 13]
     """
-    half = maximum / 2
     primes = list( generator(maximum/2) )
     count = len(primes)
     sum_of_primes = []
