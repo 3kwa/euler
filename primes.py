@@ -1,3 +1,5 @@
+from math import sqrt
+
 def generator(stop=None):
     """
     http://www.cs.hmc.edu/~oneill/papers/Sieve-JFP.pdf
@@ -22,6 +24,28 @@ def generator(stop=None):
                 D.setdefault(p + q, []).append(p)
             del D[q]
         q += 1
+
+def is_prime(number):
+    """
+    >>> is_prime(1)
+    False
+    >>> is_prime(2)
+    True
+    >>> is_prime(4)
+    False
+    >>> is_prime(9)
+    False
+    >>> all(is_prime(n) for n in generator(100))
+    True
+    >>> list(generator(1000)) == [i for i in range(1001) if is_prime(i)]
+    True
+    """
+    if number < 2:
+        return False
+    for p in generator( int(sqrt(number)) ):
+        if number % p == 0:
+            return False
+    return True
 
 def factors(number):
     """
