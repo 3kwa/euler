@@ -39,11 +39,13 @@ def is_circular_prime(number):
     >>> sum(1 for number in generator(100) if is_circular_prime(number))
     13
     """
-    if number != 2:
+    if number not in (2, 5):
+        if '5' in str(number):
+            return False
         for digit in str(number):
             if int(digit) % 2 == 0:
                 return False
-    # the previous 4 lines make the execution time go from 65 sec to 5 sec
+    # the previous 6 lines make the execution time go from 65 sec to 3 sec
     return all(is_prime(i) for i in rotation(number))
 
 if __name__ == '__main__':
