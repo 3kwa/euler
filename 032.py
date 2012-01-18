@@ -49,8 +49,6 @@ def smart(list_):
     7254
     """
     string = ''.join(map(str, list_))
-    multiplicand = int(string[:2])
-    multiplier = int(string[2:])
     return pandigitial_product(int(string[:1]), int(string[1:])) \
             + pandigitial_product(int(string[:2]), int(string[2:]))
 
