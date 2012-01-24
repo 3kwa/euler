@@ -29,10 +29,12 @@ for i in P:
                 for m in (p for p in P if p > l):
                     if not valid(i,m) or not valid(j,m) or not valid(k,m) or not valid(l,m):
                         continue
-                    print i,j,k,l,m
+                    result = i,j,k,l,m
                     found = True
                     break
                 if found == True: break
             if found == True: break
         if found == True: break
     if found == True: break
+
+print result, sum(result)
