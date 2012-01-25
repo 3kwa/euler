@@ -16,10 +16,6 @@ def find(permutation):
     """
     >>> find(3)
     41063625
-    >>> find(5)
-    127035954683
-    >>> find(6)
-    1000600120008
     """
     seen = defaultdict(list)
     i = 1
