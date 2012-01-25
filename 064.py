@@ -1,4 +1,5 @@
 from math import sqrt
+from decimal import *
 
 
 def step(value):
@@ -8,7 +9,7 @@ def recursion(value, seen=[]):
     integer, new = step(value)
     # floating point precision an issue must truncate/round
     # 3 was chosen empirically 10 ** -4 precision in assessing periodicity
-    truncated = round(new, 1)
+    truncated = round(new, 3)
     if truncated in seen:
         return len(seen)
     return recursion(new, seen + [truncated])
@@ -23,7 +24,7 @@ def period(N):
     value = sqrt(N)
     if int(value)==value:
         return 0
-    return recursion(sqrt(N))
+    return recursion(value)
 
 def solution(max):
     """
