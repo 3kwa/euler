@@ -1,5 +1,4 @@
 from operator import mul
-from fractions import Fraction
 
 from primes import generator
 from millerrabin import is_probable_prime
@@ -67,7 +66,8 @@ def totient(n):
     if is_probable_prime(n):
         return n - 1
     f = factors(n)
-    return int( n * reduce(mul, ( (p-1) for p in f )) / reduce(mul, f)  )
+    # use (p - 1) / p instead of 1 - 1./p to avoid floating point error
+    return n * reduce(mul, ( (p-1) for p in f )) / reduce(mul, f)
 
 def count(D):
     """
